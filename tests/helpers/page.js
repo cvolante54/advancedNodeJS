@@ -12,6 +12,7 @@ class CustomPage {
     const page = await browser.newPage();
     const customPage = new CustomPage(page);
 
+    //create proxy
     return new Proxy(customPage, {
       get: function(target, property){
         return target[property] || browser[property] || page[property];
